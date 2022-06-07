@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andy Jiang</title>
     <link href="./style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f0940c5a97.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
 </head>
 <body>
     <header>
@@ -29,21 +31,21 @@
         </div>
         <div id="navigation-bar">
             <div class="nav-buttons">
-                <img src="" id="left-button">
-                <img src="" id="right-button">
-                <img src="" id="refresh-button">    
+                <i class="fa-solid fa-arrow-left" id="arrow-left"></i>
+                <i class="fa-solid fa-arrow-right" id="arrow-right"></i>
+                <i class="fa-solid fa-arrow-rotate-right" id="refresh"></i>   
             </div>
             <div id="address-bar">
                 <p>andyjiang/explains-himself</p>
                 <p>andyjiang/knows-things</p>
                 <p>andyjiang/does-things</p>
-                <p>andyjiag/wants-contact</p>
+                <p>andyjiang/wants-contact</p>
             </div>
-            <img src="" id="small-portrait">
+            <img src="./resources/portrait.jpg" id="small-portrait">
         </div>
         <div class="page" id="about-page">
             <div class="greeting">
-                <img src="" id="portrait">
+                <img src="./resources/portrait.jpg" id="portrait">
                 <h4>Hello!</h4>
             </div>
             <p>I'm a senior studying Computer Science at NYU. I'm interested in making interactive, responsive websites and applications.</p>
@@ -52,62 +54,86 @@
             <a>Resume</a>
             <div class="skills">
                 <div class="skill">
-                    <img src="">
-                    <p>HTML</p>
+                    <i class="fa-brands fa-html5"></i>
+                    <label>HTML</label>
                 </div>
                 <div class="skill">
-                    <img src="">
-                    <p>CSS</p>
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <label>CSS</label>
                 </div>
                 <div class="skill">
-                    <img src="">
-                    <p>Javascript</p>
+                    <i class="fa-brands fa-js"></i>
+                    <label>Javascript</label>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-git"></i>
+                    <label>Git</label>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-github"></i>
+                    <label>Github</label>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-chrome"></i>
+                    <label>Chrome Developer Tools</label>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-terminal"></i>
+                    <label>Terminal</label>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-c"></i>
+                    <label>C Language</label>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-java"></i>
+                    <label>Java</label>
                 </div>
             </div>
         </div>
         <div class="page" id="projects-page">
             <div class="project">
                 <div class="img-container">
-                    <img src="">
+                    <img src="./resources/project_screenshot_rocket.png">
                 </div>
                 <div class="project-info">
-                    <h4>Project Name</h4>
-                    <p>Description of project. Description of project.</p>
+                    <h4>Mini Rocket</h4>
+                    <p>A small project built with HTML, CSS, and Javascript with interactive components and animations.</p>
                     <div class="project-buttons">
-                        <a class="live-button" href="#">Live</a>
+                        <a class="live-button" href="https://htmlpreview.github.io/?https://github.com/JiangAndy0/rocket/blob/main/javascript_animation.html">Live</a>
                     </div>
                     <div class="project-buttons">
-                        <a class="live-button" href="#">Code</a>
+                        <a class="code-button" href="https://github.com/JiangAndy0/rocket">Code</a>
                     </div>
                 </div>
             </div>
             <div class="project">
                 <div class="img-container">
-                    <img src="">
+                    <img src="./resources/project_screenshot_responsive.png">
                 </div>
                 <div class="project-info">
-                    <h4>Project Name</h4>
-                    <p>Description of project. Description of project.</p>
+                    <h4>Responsive Club</h4>
+                    <p>A mock club website built with HTML and CSS. Goal of project was to create a responsive website that changed layout based on screen size.</p>
                     <div class="project-buttons">
-                        <a class="live-button" href="#">Live</a>
+                        <a class="live-button" href="https://htmlpreview.github.io/?https://github.com/JiangAndy0/responsive_club_challenge/blob/main/Challenge_Project_Responsive_Club/index.html">Live</a>
                     </div>
                     <div class="project-buttons">
-                        <a class="live-button" href="#">Code</a>
+                        <a class="code-button" href="https://github.com/JiangAndy0/responsive_club_challenge">Code</a>
                     </div>
                 </div>
             </div>
             <div class="project">
                 <div class="img-container">
-                    <img src="">
+                    <img src="./resources/project_screenshot_company.png">
                 </div>
                 <div class="project-info">
-                    <h4>Project Name</h4>
-                    <p>Description of project. Description of project.</p>
+                    <h4>Company Homepage</h4>
+                    <p>A mock company website built with HTML and CSS. Goal of project was to explore designing with CSS Flex.</p>
                     <div class="project-buttons">
-                        <a class="live-button" href="#">Live</a>
+                        <a class="live-button" href="https://htmlpreview.github.io/?https://github.com/JiangAndy0/company_homepage_challenge/blob/main/index.html#get-help">Live</a>
                     </div>
                     <div class="project-buttons">
-                        <a class="live-button" href="#">Code</a>
+                        <a class="code-button" href="https://github.com/JiangAndy0/company_homepage_challenge">Code</a>
                     </div>
                 </div>
             </div>
@@ -121,10 +147,9 @@
             <div class="info">
                 <a>andyjiangart@gmail.com</a>
                 <a>aj2730@nyu.edu</a>
-                <a>github.com/JiangAndy0</a>
+                <a href="https://www.github.com/JiangAndy0">github.com/JiangAndy0</a>
             </div>
         </div>
     </main>
 </body>
-<script src="./script.js"></script>
 </html>
