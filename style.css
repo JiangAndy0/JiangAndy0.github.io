@@ -140,9 +140,13 @@ main {
     overflow: scroll;
 }
 
+.page {
+    display: none;
+}
+
 #about-page {
     height: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -168,6 +172,56 @@ main {
     width: 80%;
     max-width: 600px;
     text-align: center;
+}
+
+#skills-page {
+    display: block;
+}
+
+#resume-container {
+    display: flex;
+    justify-content: center;
+    padding: 5rem 0;
+}
+
+#skills-page a {
+    position: relative;
+    text-decoration: none;
+    background-color: darkturquoise;
+    color: white;
+    padding: 1.25rem 1.75rem;
+    border-radius: 2rem;
+    font-weight: 500;  
+}
+
+#skills-page a:hover {
+    box-shadow: 0.3rem 0.3rem 0px slategray;
+    right: 0.3rem;
+    bottom: 0.3rem;
+}
+
+#skills {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    max-width: 60rem;
+    padding: 3rem 0;
+    margin: 0 auto;
+    justify-content: space-between;
+    row-gap: 3rem;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 15rem;
+}
+
+.skill label {
+    text-align: center;
+    margin-top: 1.5rem;
 }
 
 
