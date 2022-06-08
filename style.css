@@ -34,9 +34,13 @@ h2 {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    font-weight: 500;  
+}
+
 .img-container {
     overflow: hidden;
-    background-color: lightcoral;
 }
 
 main {
@@ -129,6 +133,7 @@ main {
     width: 40px;
     border-radius: 50%;
     overflow: hidden;
+    background-color: lightcoral;
 }
 
 #navigation-bar .img-container img {
@@ -146,7 +151,7 @@ main {
 
 #about-page {
     height: 100%;
-    display: none;
+    display: none; /*default = flex*/
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -175,7 +180,7 @@ main {
 }
 
 #skills-page {
-    display: block;
+    display: none; /*default: block*/
 }
 
 #resume-container {
@@ -186,12 +191,11 @@ main {
 
 #skills-page a {
     position: relative;
-    text-decoration: none;
     background-color: darkturquoise;
     color: white;
     padding: 1.25rem 1.75rem;
     border-radius: 2rem;
-    font-weight: 500;  
+
 }
 
 #skills-page a:hover {
@@ -201,7 +205,7 @@ main {
 }
 
 #skills {
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
     width: 85%;
     max-width: 60rem;
@@ -223,6 +227,67 @@ main {
     text-align: center;
     margin-top: 1.5rem;
 }
+
+
+#projects-page {
+    display: none; /*default : block */
+}
+
+.project {
+    display: flex;
+    column-gap: 2rem;
+    margin: 5rem;
+    align-items: center;
+}
+
+.project .img-container {
+    height: 200px;
+    width: 300px;
+    flex-shrink: 0;
+    border: 3px solid slategray;
+    border-radius: 1rem;
+}
+
+.project .img-container img {
+    width: 100%;
+}
+
+.project .project-info {
+   max-width: 50rem;
+}
+
+.project-info .project-buttons {
+    display: flex;
+    column-gap: 2rem;
+    margin-top: 2rem;
+}
+
+.live-button, .code-button {
+    width: 42px;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    position: relative;
+    color: darkslategray;
+}
+
+.live-button {
+    border: 3px solid lightsalmon;
+}
+
+.code-button {
+    border: 3px solid darkturquoise;
+}
+
+.live-button:hover, .code-button:hover {
+    box-shadow: 0.3rem 0.3rem 0px slategray;
+    right: 0.3rem;
+    bottom: 0.3rem;
+}
+
+
+
+
 
 
 
