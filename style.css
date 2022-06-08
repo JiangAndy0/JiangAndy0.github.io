@@ -80,9 +80,55 @@ main {
 
 
 #navigation-bar {
-    display: block;
+    display: flex;
     background-color: slategray;
     height: 50px;
+    align-items: center;
+    column-gap: 20px;
+    padding: 0 20px;
+}
+
+#nav-buttons {
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#address-bar {
+    background-color: lightgray;
+    height: 80%;
+    flex: 1 0 auto;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+/* Initially only display the "address" for the about section */
+#address-skills {
+    display: none;
+}
+
+#address-projects {
+    display: none;
+}
+
+#address-contact {
+    display: none;
+}
+
+
+#navigation-bar .img-container {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#navigation-bar .img-container img {
+    width: 100%;
+    position: relative;
 }
 
 #content {
