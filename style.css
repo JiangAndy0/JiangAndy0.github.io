@@ -63,6 +63,7 @@ main {
     display: flex;
     background-color: black;
     height: 50px;
+    user-select: none;
 }
 
 .tab {
@@ -307,6 +308,7 @@ main {
 
 #contact-page a {
     margin-left: 1rem;
+    user-select: all;
 }
 
 #github-link {
