@@ -2,7 +2,7 @@ html {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
-h1, h3, h4 {
+h1, h3 {
     font-family: 'Bebas Neue', cursive;
 }
 
@@ -32,6 +32,11 @@ h2 {
     font-size: 36px;
     font-weight: 300;
     margin: 0;
+}
+
+.img-container {
+    overflow: hidden;
+    background-color: lightcoral;
 }
 
 main {
@@ -128,7 +133,6 @@ main {
 
 #navigation-bar .img-container img {
     width: 100%;
-    position: relative;
 }
 
 #content {
@@ -136,6 +140,35 @@ main {
     overflow: scroll;
 }
 
+#about-page {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#about-page .img-container {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    background-color: lightcoral;
+}
+
+#about-page .img-container img {
+    width: 100%;
+}
+
+#about-page h4 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+#about-page p {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
 
 
 
