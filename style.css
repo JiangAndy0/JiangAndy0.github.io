@@ -17,7 +17,7 @@ header, main {
 header {
     display: flex;
     justify-content: center;
-    height: 500px;
+    height: 300px;
     flex-direction: column;
 }
 
@@ -33,3 +33,64 @@ h2 {
     font-weight: 300;
     margin: 0;
 }
+
+main {
+    padding: 60px 0;
+}
+
+
+#window {
+    margin: 0 auto;
+    background-color: white;
+    width: 75%;
+    max-width: 1500px;
+    border-radius: 15px;
+    overflow: hidden;
+
+}
+
+
+#tab-bar {
+    display: flex;
+    background-color: black;
+    height: 50px;
+}
+
+.tab {
+    background-color: darkslategray;
+    width: 200px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.tab h3 {
+    margin-left: 1rem;
+}
+
+.tab i {
+    margin-right: 0.5rem;
+}
+
+
+#about-me-tab {
+    background-color: slategray;
+}
+
+
+#navigation-bar {
+    display: block;
+    background-color: slategray;
+    height: 50px;
+}
+
+#content {
+    height: 80vh;
+    overflow: scroll;
+}
+
+
+
+
+
