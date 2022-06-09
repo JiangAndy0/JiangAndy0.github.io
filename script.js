@@ -10,18 +10,21 @@ const tabs = [tabAboutMe, tabSkills, tabProjects, tabContact];
 tabs[0].style.backgroundColor = 'slategray';
 
 
-//changes active tab - the active tab's background color becomes slate gray, associated navbar and content appears
-function changeTab ( event ) {
-    //sets all tabs to be default color and default hover states
+//returns all tabs to original background color and event listeners
+function resetTabs () {
     for (let i = 0; i < tabs.length; i++){
         tabs[i].style.backgroundColor = 'hsl(200, 50%, 20%)';
         tabs[i].addEventListener('mouseover', lightenTab);
         tabs[i].addEventListener('mouseout', returnTab);
     }
-    event.target.style.backgroundColor = 'slategray'; //changes active tab's background color 
+}
+
+//changes active tab shown to user
+function changeTab ( tab ) {
+    tab.style.backgroundColor = 'slategray'; //changes tab to active tab background color
     //remove hover color changes for the active tab
-    event.target.removeEventListener( 'mouseover', lightenTab);
-    event.target.removeEventListener( 'mouseout', returnTab);
+    tab.removeEventListener( 'mouseover', lightenTab);
+    tab.removeEventListener( 'mouseout', returnTab);
 }
 
 //lightens background color of a tab - for mouseover events
@@ -33,9 +36,30 @@ function returnTab ( event ) {
     event.target.style.backgroundColor = 'hsl(200, 50%, 20%)';
 }
 
-//add event listeners to all the tabs
-for (let i = 0; i < tabs.length; i++){
-    tabs[i].addEventListener( 'click', changeTab );
-    tabs[i].addEventListener( 'mouseover', lightenTab);
-    tabs[i].addEventListener( 'mouseout', returnTab);
+//Following functions changes the fake browser to display different address bars/pages
+function changeToAboutMe () {
+    resetTabs();
+    changeTab(tabAboutMe);
 }
+
+function changeToSkills () {
+    resetTabs();
+    changeTab(tabSkills);
+}
+
+function changeToProjects () {
+    resetTabs();
+    changeTab(tabProjects);
+}
+
+function changeToContact () {
+    resetTabs();
+    changeTab(tabContact);
+}
+
+
+//add event listeners to all the tabs
+tabAboutMe.addEventListener('click', changeToAboutMe);
+tabSkills.addEventListener('click', changeToSkills);
+tabProjects.addEventListener('click', changeToProjects);
+tabContact.addEventListener('click', changeToContact);
