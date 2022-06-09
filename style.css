@@ -73,6 +73,12 @@ main {
     border-top-right-radius: 15px;
     display: flex;
     align-items: center;
+    transition: background-color 0.5s ease-in;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background-color:hsl(200, 50%, 25%);
 }
 
 .tab h3 {
