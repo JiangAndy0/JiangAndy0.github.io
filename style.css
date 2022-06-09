@@ -119,10 +119,23 @@ main {
 
 #nav-buttons {
     display: flex;
-    width: 80px;
+    width: 150px;
     justify-content: space-between;
     align-items: center;
     color: white;
+}
+
+#nav-buttons .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.button-container:hover i {
+    transform: scale(1.25);
 }
 
 #address-bar {
