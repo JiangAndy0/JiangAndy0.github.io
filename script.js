@@ -22,25 +22,10 @@ const pageContact = document.getElementById("contact-page");
 
 const pages = [pageAbout, pageSkills, pageProjects, pageContact];
 
-
-
-//returns all tabs to original background color and event listeners
-function resetTabs () {
-    for (let i = 0; i < tabs.length; i++){
-        tabs[i].style.backgroundColor = 'hsl(200, 50%, 20%)';
-        tabs[i].addEventListener('mouseover', lightenTab);
-        tabs[i].addEventListener('mouseout', returnTab);
-    }
-}
-
-//changes active tab shown to user
-function changeTab ( tab ) {
-    resetTabs();
-    tab.style.backgroundColor = 'slategray'; //changes tab to active tab background color
-    //remove hover color changes for the active tab
-    tab.removeEventListener( 'mouseover', lightenTab);
-    tab.removeEventListener( 'mouseout', returnTab);
-}
+//stores current tab, address, and page
+let currentTab = tabAbout;
+let currentAddress = addressAbout;
+let currentPage = pageAbout;
 
 //lightens background color of a tab - for mouseover events
 function lightenTab ( event ) {
@@ -51,54 +36,79 @@ function returnTab ( event ) {
     event.target.style.backgroundColor = 'hsl(200, 50%, 20%)';
 }
 
-//makes all addresses invisible
-function resetAddresses () {
-    for (let i = 0; i < addresses.length; i++){
-        addresses[i].style.display = 'none';
-    }
-}
-//changes address to address provided 
-function changeAddress (address) {
-    resetAddresses();
-    address.style.display = 'block';
+//removes focus on the current tab, removes current address and page
+function resetBrowser () {
+    resetTab();
+    currentAddress.style.display = 'none';
+    currentPage.style.display = 'none';
 }
 
-//makes all pages invisible
-function resetPages () {
-    for (let i = 0; i < pages.length; i++){
-        pages[i].style.display = 'none';
-    }
+//removes focus on the current tab
+function resetTab () {
+    currentTab.style.backgroundColor = 'hsl(200, 50%, 20%)';
+    currentTab.addEventListener('mouseover', lightenTab);
+    currentTab.addEventListener('mouseout', returnTab);
 }
+
+
+//changes tab shown as active
+function makeTabActive ( tab ) {
+    tab.style.backgroundColor = 'slategray'; //changes tab to active tab background color
+    //remove hover color changes for the active tab
+    tab.removeEventListener( 'mouseover', lightenTab);
+    tab.removeEventListener( 'mouseout', returnTab);
+
+    currentTab = tab; //update current tab
+}
+
+
+
+//changes address to address provided 
+function showAddress (address) {
+    address.style.display = 'block';
+    
+    currentAddress = address; //update current address
+}
+
+//changes page to page provided 
+function showPage (page) {
+    page.style.display = 'block';
+
+    currentPage = page; //update current page
+}
+
+
+
 
 
 
 //Following functions changes the fake browser to display different address bars/pages
-function changeToAboutMe () {
-    changeTab(tabAbout);
-    changeAddress(addressAbout);
-    resetPages();
-    pageAbout.style.display = 'flex';
+function changeToAboutMe (event) {
+    resetBrowser();
+    makeTabActive(event.target);
+    showAddress(addressAbout);
+    showPage(pageAbout);
 }
 
 function changeToSkills () {
-    changeTab(tabSkills);
-    changeAddress(addressSkills)
-    resetPages();
-    pageSkills.style.display = 'block';
+    resetBrowser();
+    makeTabActive(tabSkills);
+    showAddress(addressSkills)
+    showPage(pageSkills);
 }
 
 function changeToProjects () {
-    changeTab(tabProjects);
-    changeAddress(addressProjects);
-    resetPages();
-    pageProjects.style.display = 'block';
+    resetBrowser();
+    makeTabActive(tabProjects);
+    showAddress(addressProjects);
+    showPage(pageProjects);
 }
 
 function changeToContact () {
-    changeTab(tabContact);
-    changeAddress(addressContact);
-    resetPages();
-    pageContact.style.display = 'flex';
+    resetBrowser();
+    makeTabActive(tabContact);
+    showAddress(addressContact);
+    showPage(pageContact);
 }
 
 //change active tab color to slate gray
