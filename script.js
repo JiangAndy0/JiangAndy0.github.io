@@ -56,7 +56,7 @@ function resetTab () {
 
 
 //changes tab shown as active
-function makeTabActive ( tab ) {
+function highlightTab ( tab ) {
     tab.style.backgroundColor = 'slategray'; //changes tab to active tab background color
     //remove hover color changes for the active tab
     tab.removeEventListener( 'mouseover', lightenTab);
@@ -81,23 +81,25 @@ function showPage (page) {
     currentPage = page; //update current page
 }
 
-//launches when a tab is clicked to change the active 'site' shown to user
-function changeSite (event) {
+//changes the active 'site' in the browser
+function changeSiteTo ( siteIndex ) {
     resetBrowser();
-    makeTabActive(event.target);
-    let index = tabs.indexOf(event.target); //find index of the current tab
-    showAddress(addresses[index]);
-    showPage(pages[index]);
+    highlightTab(tabs[siteIndex]);
+    showAddress(addresses[siteIndex]);
+    showPage(pages[siteIndex]);
+}
+
+//launches when a tab is clicked to change the active 'site' in the browser
+function tabEventHandler (event) {
+    let index = tabs.indexOf(event.target); //find index of tab that got clicked on
+    changeSiteTo(index);
 }
 
 //Goes to the 'site' of the tab to the left of the current tab, if possible
 function toLeftSite () {
     let index = tabs.indexOf(currentTab);
     if (index !== 0){ //if the current site is not the leftmost site
-        resetBrowser();
-        makeTabActive(tabs[index-1]);
-        showAddress(addresses[index-1]);
-        showPage(pages[index-1]);
+        changeSiteTo(index - 1);
     } else {
         //do nothing
     }
@@ -107,10 +109,7 @@ function toLeftSite () {
 function toRightSite () {
     let index = tabs.indexOf(currentTab);
     if (index !== tabs.length - 1 ){ //if the current site is not the rightmost site
-        resetBrowser();
-        makeTabActive(tabs[index+1]);
-        showAddress(addresses[index+1]);
-        showPage(pages[index+1]);
+        changeSiteTo(index + 1);
     } else {
         //do nothing
     }
@@ -121,7 +120,7 @@ tabs[0].style.backgroundColor = 'slategray';
 
 //add event listeners to all the tabs
 for (let i = 0; i < tabs.length; i++){
-    tabs[i].addEventListener('click', changeSite);
+    tabs[i].addEventListener('click', tabEventHandler);
 }
 
 //add event listeners to the navigation bar buttons
