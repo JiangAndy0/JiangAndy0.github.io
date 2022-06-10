@@ -22,6 +22,10 @@ const pageContact = document.getElementById("contact-page");
 
 const pages = [pageAbout, pageSkills, pageProjects, pageContact];
 
+//navigation bar button elements
+const arrowLeft = document.getElementById("arrow-left");
+const arrowRight = document.getElementById("arrow-right");
+
 //stores current tab, address, and page
 let currentTab = tabAbout;
 let currentAddress = addressAbout;
@@ -77,13 +81,39 @@ function showPage (page) {
     currentPage = page; //update current page
 }
 
-//launches when a tab is clicked to change the active 'website' shown to user
-function changeActive (event) {
+//launches when a tab is clicked to change the active 'site' shown to user
+function changeSite (event) {
     resetBrowser();
     makeTabActive(event.target);
-    let index = tabs.indexOf(event.target);
+    let index = tabs.indexOf(event.target); //find index of the current tab
     showAddress(addresses[index]);
     showPage(pages[index]);
+}
+
+//Goes to the 'site' of the tab to the left of the current tab, if possible
+function toLeftSite () {
+    let index = tabs.indexOf(currentTab);
+    if (index !== 0){ //if the current site is not the leftmost site
+        resetBrowser();
+        makeTabActive(tabs[index-1]);
+        showAddress(addresses[index-1]);
+        showPage(pages[index-1]);
+    } else {
+        //do nothing
+    }
+}
+
+//Goes to the 'site' of the tab to the right of the current tab, if possible
+function toRightSite () {
+    let index = tabs.indexOf(currentTab);
+    if (index !== tabs.length - 1 ){ //if the current site is not the rightmost site
+        resetBrowser();
+        makeTabActive(tabs[index+1]);
+        showAddress(addresses[index+1]);
+        showPage(pages[index+1]);
+    } else {
+        //do nothing
+    }
 }
 
 //change active tab color to slate gray
@@ -91,5 +121,9 @@ tabs[0].style.backgroundColor = 'slategray';
 
 //add event listeners to all the tabs
 for (let i = 0; i < tabs.length; i++){
-    tabs[i].addEventListener('click', changeActive);
+    tabs[i].addEventListener('click', changeSite);
 }
+
+//add event listeners to the navigation bar buttons
+arrowLeft.addEventListener('click', toLeftSite);
+arrowRight.addEventListener('click', toRightSite);
