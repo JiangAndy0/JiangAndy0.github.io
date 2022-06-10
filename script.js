@@ -25,11 +25,15 @@ const pages = [pageAbout, pageSkills, pageProjects, pageContact];
 //navigation bar button elements
 const arrowLeft = document.getElementById("arrow-left");
 const arrowRight = document.getElementById("arrow-right");
+const refresh = document.getElementById("refresh");
 
 //stores current tab, address, and page
 let currentTab = tabAbout;
 let currentAddress = addressAbout;
 let currentPage = pageAbout;
+
+//variable to alternate between animations
+let evenTurn = true;
 
 //lightens background color of a tab - for mouseover events
 function lightenTab ( event ) {
@@ -87,6 +91,7 @@ function changeSiteTo ( siteIndex ) {
     highlightTab(tabs[siteIndex]);
     showAddress(addresses[siteIndex]);
     showPage(pages[siteIndex]);
+    currentPage.style.animation = '';
 }
 
 //launches when a tab is clicked to change the active 'site' in the browser
@@ -100,8 +105,6 @@ function toLeftSite () {
     let index = tabs.indexOf(currentTab);
     if (index !== 0){ //if the current site is not the leftmost site
         changeSiteTo(index - 1);
-    } else {
-        //do nothing
     }
 }
 
@@ -110,13 +113,22 @@ function toRightSite () {
     let index = tabs.indexOf(currentTab);
     if (index !== tabs.length - 1 ){ //if the current site is not the rightmost site
         changeSiteTo(index + 1);
-    } else {
-        //do nothing
-    }
+    } 
 }
 
-//change active tab color to slate gray
-tabs[0].style.backgroundColor = 'slategray';
+//"Refreshes" the current page by making it invisible and slowly increasing its opacity
+function refreshPage () {
+    currentPage.style.opacity = '0';
+    if (evenTurn){
+        currentPage.style.animation = 'reappear1 1s ease-in 0.5s forwards';
+        evenTurn = false;
+    } else {
+        currentPage.style.animation = 'reappear2 1s ease-in 0.5s forwards';
+        evenTurn = true;
+    }
+    currentPage.style.opacity = '100';
+
+}
 
 //add event listeners to all the tabs
 for (let i = 0; i < tabs.length; i++){
@@ -126,3 +138,7 @@ for (let i = 0; i < tabs.length; i++){
 //add event listeners to the navigation bar buttons
 arrowLeft.addEventListener('click', toLeftSite);
 arrowRight.addEventListener('click', toRightSite);
+refresh.addEventListener('click', refreshPage);
+
+//change active tab color to slate gray
+tabs[0].style.backgroundColor = 'slategray';

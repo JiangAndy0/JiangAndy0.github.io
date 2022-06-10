@@ -189,6 +189,26 @@ main {
     display: none;
 }
 
+@keyframes reappear1 {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes reappear2 {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
 #about-page {
     display: block;
     height: 100%;
