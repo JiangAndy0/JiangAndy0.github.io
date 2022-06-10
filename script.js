@@ -77,45 +77,19 @@ function showPage (page) {
     currentPage = page; //update current page
 }
 
-
-
-
-
-
-//Following functions changes the fake browser to display different address bars/pages
-function changeToAboutMe (event) {
+//launches when a tab is clicked to change the active 'website' shown to user
+function changeActive (event) {
     resetBrowser();
     makeTabActive(event.target);
-    showAddress(addressAbout);
-    showPage(pageAbout);
-}
-
-function changeToSkills () {
-    resetBrowser();
-    makeTabActive(tabSkills);
-    showAddress(addressSkills)
-    showPage(pageSkills);
-}
-
-function changeToProjects () {
-    resetBrowser();
-    makeTabActive(tabProjects);
-    showAddress(addressProjects);
-    showPage(pageProjects);
-}
-
-function changeToContact () {
-    resetBrowser();
-    makeTabActive(tabContact);
-    showAddress(addressContact);
-    showPage(pageContact);
+    let index = tabs.indexOf(event.target);
+    showAddress(addresses[index]);
+    showPage(pages[index]);
 }
 
 //change active tab color to slate gray
 tabs[0].style.backgroundColor = 'slategray';
 
 //add event listeners to all the tabs
-tabAbout.addEventListener('click', changeToAboutMe);
-tabSkills.addEventListener('click', changeToSkills);
-tabProjects.addEventListener('click', changeToProjects);
-tabContact.addEventListener('click', changeToContact);
+for (let i = 0; i < tabs.length; i++){
+    tabs[i].addEventListener('click', changeActive);
+}
