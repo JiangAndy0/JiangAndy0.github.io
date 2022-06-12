@@ -31,22 +31,6 @@ h2 {
     margin: 0;
 }
 
-@media screen and (max-width: 650px){
-
-    header {
-        display: block;
-        height: auto;
-        margin: 25px 0;
-    }
-
-    h1 {
-        font-size: 100px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-}
 
 a {
     text-decoration: none;
@@ -67,6 +51,38 @@ a {
     overflow: hidden;
     position: relative;
 
+}
+
+@media screen and (max-width: 650px){
+
+    header {
+        display: block;
+        height: auto;
+        margin: 25px 0;
+    }
+
+    h1 {
+        font-size: 100px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    #window {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 380px){
+
+    h1 {
+        font-size: 80px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
 }
 
 
@@ -379,6 +395,11 @@ a {
     margin-top: 1.5rem;
 }
 
+@media screen and (max-width: 800px){
+    #resume-container {
+        padding: 2rem 0;
+    }
+}
 
 #projects-page {
     display: none; /*default : block */
@@ -409,8 +430,8 @@ a {
 
 .project-info .project-buttons {
     display: flex;
-    column-gap: 2rem;
     margin-top: 2rem;
+    column-gap: 1rem;
 }
 
 .live-button, .code-button {
@@ -450,6 +471,19 @@ a {
     }
 }
 
+@media screen and (max-width: 425px){
+
+    .project {
+        margin: 4rem 0;
+        padding: 0 1rem;
+    }
+
+    .project .img-container {
+        height: 150px;
+        width: 225px;
+    }
+}
+
 #contact-page {
     display: none; 
     height: 100%;
@@ -480,6 +514,25 @@ a {
 
 #github-link {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 425px){
+    #contact-page .content {
+        width: auto;
+    }
+    #contact-page .info {
+        display: flex;
+        flex-direction: column;
+    }
+    #contact-page .content label {
+        width: auto;
+        text-align: center;
+    }
+    #contact-page a {
+        margin: 0;
+        text-align: center;
+    }
+
 }
 
 footer p {
