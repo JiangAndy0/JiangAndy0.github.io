@@ -1,4 +1,6 @@
-//tab elements
+//tab bar elements
+const tabBar = document.getElementById("tab-bar");
+
 const tabAbout = document.getElementById("about-me-tab");
 const tabSkills = document.getElementById("skills-tab");
 const tabProjects = document.getElementById("projects-tab");
@@ -6,7 +8,9 @@ const tabContact = document.getElementById("contact-tab");
 
 const tabs = [tabAbout, tabSkills, tabProjects, tabContact];
 
-//address elements
+//navigation bar elements
+const navigationBar = document.getElementById("navigation-bar");
+
 const addressAbout = document.getElementById("address-about");
 const addressSkills = document.getElementById("address-skills");
 const addressProjects = document.getElementById("address-projects");
@@ -26,6 +30,8 @@ const pages = [pageAbout, pageSkills, pageProjects, pageContact];
 const arrowLeft = document.getElementById("arrow-left");
 const arrowRight = document.getElementById("arrow-right");
 const refresh = document.getElementById("refresh");
+const tabButton = document.getElementById("tabs-button"); //only appears when window size < 900px
+const pullUp = document.getElementById("pull-up"); //only appears when window size < 900px
 
 //stores current tab, address, and page
 let currentTab = tabAbout;
@@ -80,9 +86,15 @@ function showAddress (address) {
 
 //changes page to page provided 
 function showPage (page) {
+    //pull up tab bar and nav bar if window width is less than 900px
+     if (window.innerWidth < 900){
+        upBars();
+        currentPage.style.top = '0'; //make sure the current page is moved up before changing current page
+    }
     page.style.display = 'block';
 
     currentPage = page; //update current page
+
 }
 
 //changes the active 'site' in the browser
@@ -130,6 +142,35 @@ function refreshPage () {
 
 }
 
+
+//"Pulls down" the tab bar, nav bar, and page by changing their position
+function downBars () {
+    tabBar.style.top = '0'; //from -135px to 0
+    navigationBar.style.top = '135px'; //from 0 to 135px
+    currentPage.style.top = '135px'; //from 0 to 135px
+    tabButton.style.display = 'none'; //make tab button disappear
+    pullUp.style.display = 'block'; //make pull up button appear
+}
+
+//"Pulls up" the tab bar and nav bar by changing their position
+function upBars () {
+    tabBar.style.top = '-135px'; //from 0 to -135px
+    navigationBar.style.top = '0'; //from 135px to 0
+    currentPage.style.top = '0'; //from 135px to 0
+    tabButton.style.display = 'block'; //make tab button appear
+    pullUp.style.display = 'none'; //make pull up button disappear
+}
+
+//Adjusts what buttons are displayed based on screen size
+function windowResizeHandler () {
+    if (window.innerWidth > 900){ //if the window width is greater than 900px, hide tab-button/pull up button
+        tabButton.style.display = 'none';
+        pullUp.style.display = 'none';
+        currentPage.style.top = '0';
+    } else {
+        upBars(); //ensure the default tab/navigation bar position is shown
+    }
+}
 //add event listeners to all the tabs
 for (let i = 0; i < tabs.length; i++){
     tabs[i].addEventListener('click', tabEventHandler);
@@ -139,6 +180,11 @@ for (let i = 0; i < tabs.length; i++){
 arrowLeft.addEventListener('click', toLeftSite);
 arrowRight.addEventListener('click', toRightSite);
 refresh.addEventListener('click', refreshPage);
+tabButton.addEventListener('click', downBars);
+pullUp.addEventListener('click', upBars);
+
+//add an event listener to the window so resizing can trigger a function
+window.addEventListener('resize', windowResizeHandler);
 
 //change active tab color to slate gray
 tabs[0].style.backgroundColor = 'slategray';

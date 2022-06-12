@@ -7,12 +7,9 @@ h1, h3 {
 }
 
 body {
-    margin: 0;
+   background-color: moccasin;
 }
 
-header, main {
-    background-color: moccasin;
-}
 
 header {
     display: flex;
@@ -34,6 +31,23 @@ h2 {
     margin: 0;
 }
 
+@media screen and (max-width: 650px){
+
+    header {
+        display: block;
+        height: auto;
+        margin: 25px 0;
+    }
+
+    h1 {
+        font-size: 100px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
 a {
     text-decoration: none;
     font-weight: 500;  
@@ -41,10 +55,6 @@ a {
 
 .img-container {
     overflow: hidden;
-}
-
-main {
-    padding: 60px 0;
 }
 
 
@@ -55,6 +65,7 @@ main {
     max-width: 1500px;
     border-radius: 15px;
     overflow: hidden;
+    position: relative;
 
 }
 
@@ -64,6 +75,7 @@ main {
     background-color: black;
     height: 50px;
     user-select: none;
+    z-index: 2;
 }
 
 .tab {
@@ -107,6 +119,27 @@ main {
     color: lightgray;
 }
 
+@media screen and (max-width: 900px){
+    #tab-bar {
+        box-sizing: border-box;
+        display: grid;
+        grid-template: repeat(2, 60px) / 1fr 1fr;
+        height: auto;
+        width: 100%;
+        column-gap: 5px;
+        row-gap: 5px;
+        padding: 5px;
+        position: absolute;
+        top: -140px;
+        transition: top 0.5s;
+    }
+
+    .tab {
+        width: 100%;
+        border-radius: 15px;
+    }
+}
+
 
 #navigation-bar {
     display: flex;
@@ -115,11 +148,13 @@ main {
     align-items: center;
     column-gap: 20px;
     padding: 0 20px;
+    z-index: 2;
 }
+
 
 #nav-buttons {
     display: flex;
-    width: 150px;
+    width: 130px;
     justify-content: space-between;
     align-items: center;
     color: white;
@@ -129,8 +164,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
 }
 
@@ -180,6 +215,53 @@ main {
     width: 100%;
 }
 
+#tabs-button {
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0%);
+    color: white;
+    border: 3px solid white;
+    border-radius: 6px;
+}
+
+#navigation-bar button:hover {
+    transform: scale(1.1);
+}
+
+#pull-up {
+    display: none;
+    color: white;
+    cursor: pointer;
+}
+
+#pull-up:hover {
+    transform: scale(1.25);
+}
+
+@media screen and (max-width: 900px){
+    #navigation-bar {
+        position: relative;
+        top: 0;
+        transition: top 0.5s;
+    }
+
+    #tabs-button {
+        display: inline-block;
+    }
+
+    #navigation-bar .img-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px){
+    #nav-buttons {
+        display: none;
+    }
+}
+
 #content {
     height: 80vh;
     overflow: scroll;
@@ -187,6 +269,9 @@ main {
 
 .page {
     display: none;
+    position: relative;
+    top: 0;
+    transition: top 0.5s;
 }
 
 @keyframes reappear1 {
@@ -275,7 +360,7 @@ main {
     flex-wrap: wrap;
     width: 85%;
     max-width: 60rem;
-    padding: 3rem 0;
+    padding: 2rem 0;
     margin: 0 auto;
     justify-content: space-evenly;
     row-gap: 3rem;
@@ -351,6 +436,20 @@ main {
     bottom: 0.3rem;
 }
 
+@media screen and (max-width: 1024px){
+    .project {
+        flex-direction: column;
+    }
+
+    .project h4, .project p {
+        text-align: center;
+    }
+
+    .project-info .project-buttons {
+        justify-content: center;
+    }
+}
+
 #contact-page {
     display: none; 
     height: 100%;
@@ -362,10 +461,10 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     row-gap: 2rem;
     margin: auto;
+    width: 20rem;
 }
 
 #contact-page .content label {
