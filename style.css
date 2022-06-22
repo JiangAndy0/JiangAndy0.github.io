@@ -418,10 +418,13 @@ a {
     flex-shrink: 0;
     border: 3px solid slategray;
     border-radius: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .project .img-container img {
     width: 100%;
+    object-fit: contain;
 }
 
 .project .project-info {
