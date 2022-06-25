@@ -37,6 +37,34 @@ a {
     font-weight: 500;  
 }
 
+.button {
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: lightgray;
+    border-radius: 2rem;
+    color: darkslategray;
+}
+
+.button.long {
+    width: 18rem;
+}
+
+.button.medium {
+    width: 12rem;
+}
+
+.button.short {
+    width: 8rem;
+}
+
+.button:hover {
+    box-shadow: 0.3rem 0.3rem slategray;
+    right: 0.3rem;
+    bottom: 0.3rem;
+}
+
 .img-container {
     overflow: hidden;
 }
@@ -350,19 +378,15 @@ a {
     display: none; /*default: block*/
 }
 
-#resume-container {
+#skills-page #resume-container {
     display: flex;
     justify-content: center;
     padding: 5rem 0;
 }
 
-#skills-page a {
-    position: relative;
+#skills-page .button {
     background-color: darkturquoise;
     color: white;
-    padding: 1.25rem 1.75rem;
-    border-radius: 2rem;
-
 }
 
 #skills-page a:hover {
@@ -437,27 +461,17 @@ a {
     column-gap: 1rem;
 }
 
-.live-button, .code-button {
-    width: 42px;
-    text-align: center;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    position: relative;
-    color: darkslategray;
+#projects-page .button {
+    background-color: transparent;
+    border: 3px solid;
 }
 
-.live-button {
-    border: 3px solid lightsalmon;
+#projects-page .button.live {
+    border-color: lightsalmon;
 }
 
-.code-button {
-    border: 3px solid darkturquoise;
-}
-
-.live-button:hover, .code-button:hover {
-    box-shadow: 0.3rem 0.3rem 0px slategray;
-    right: 0.3rem;
-    bottom: 0.3rem;
+#projects-page .button.code {
+    border-color: darkturquoise;
 }
 
 @media screen and (max-width: 1024px){
@@ -493,12 +507,12 @@ a {
 }
 
 
-
 #contact-page .content {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     row-gap: 2rem;
     margin: auto;
     width: 20rem;
@@ -510,14 +524,24 @@ a {
     text-align: right;
 }
 
-#contact-page a {
+#contact-page .selectable {
     margin-left: 1rem;
     user-select: all;
 }
 
-#github-link {
-    text-decoration: underline;
+#contact-page i {
+    margin-right: 0.75rem;
 }
+
+#contact-page #github-button {
+    background-color: hsl(50, 100%, 70%);
+}
+
+#contact-page #linkedin-button {
+    background-color: hsl(200, 50%, 25%);
+    color: white;
+}
+
 
 @media screen and (max-width: 425px){
     #contact-page .content {
@@ -534,6 +558,10 @@ a {
     #contact-page a {
         margin: 0;
         text-align: center;
+    }
+
+    #contact-page .button {
+        width: 12rem;
     }
 
 }
