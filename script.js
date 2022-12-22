@@ -3,7 +3,7 @@ const scrollButton = document.getElementById("scroll-button");
 const chevronIcon = document.getElementById("chevron-icon")
 scrollButton.addEventListener('click', () => {
     if(chevronIcon.classList.contains('fa-chevron-down')){ //window not currently fully showing, scroll down
-        document.getElementById('window').scrollIntoView({behavior: 'smooth'});
+        window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
     } else { //window currently fully showing, scroll up
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
