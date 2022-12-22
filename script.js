@@ -1,3 +1,29 @@
+//button to scroll to the window or up
+const scrollButton = document.getElementById("scroll-button");
+const chevronIcon = document.getElementById("chevron-icon")
+scrollButton.addEventListener('click', () => {
+    if(chevronIcon.classList.contains('fa-chevron-down')){ //window not currently fully showing, scroll down
+        document.getElementById('window').scrollIntoView({behavior: 'smooth'});
+    } else { //window currently fully showing, scroll up
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+})
+
+//change scroll button based on whether #window is fully visible
+const observer = new IntersectionObserver(entries => {
+	// isIntersecting is true when element and viewport are overlapping
+	// isIntersecting is false when element and viewport don't overlap
+	if(entries[0].isIntersecting === true){ //#window is fully visible, show up chevron
+        chevronIcon.classList.remove('fa-chevron-down');
+        chevronIcon.classList.add('fa-chevron-up'); //replace down chevron with up chevron
+    } else { //#window is not fully visible, show down chevron
+        chevronIcon.classList.remove('fa-chevron-up');
+        chevronIcon.classList.add('fa-chevron-down'); //replace up chevron with down chevron
+    }
+}, { threshold: [1] });
+
+observer.observe(document.querySelector("#window"));
+
 //tab bar elements
 const tabBar = document.getElementById("tab-bar");
 
